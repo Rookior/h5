@@ -10,7 +10,7 @@
 3.	Jquery
 动效促进jquery插件丰富
 4.	html5+css3+es6 实现web3.0
-5.	requires,seajs,commonjs,es
+5.	requires,seajs,commonjs,es,umd(AMD+commonjs)
 jquery插件混乱导致script混乱，于是产生了模块化概念
 6.	nodejs与npm、nvm,yarn,pnpm
 7.	基于nodejs开发的，mvvm级框架vue，react，angular
