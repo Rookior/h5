@@ -21,35 +21,6 @@
             /* text-shadow: h-shadow v-shadow blur color; */
             text-shadow: 2px 2px 5px #f00;
         }
-        .btn{
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            cursor: pointer;
-            width: 200px;
-            padding: 5px;
-            margin: 0 auto;
-            box-sizing: border-box;
-            color: #fff;
-            text-align: center;
-            /* 内阴影 */
-            /* box-shadow: 0 0 5px #888888 inset; */
-            /* 外阴影 */          
-            animation: wink 2s ease 1s infinite alternate;
-            box-shadow: 2px 2px 5px #0f0;
-            background-image:linear-gradient(to right, #f00,#0f0,#00f)
-        }
-        @keyframes wink{
-            0%{
-                opacity: 1;
-            }
-            50%{
-                opacity: 0.8;
-            }
-            100%{
-                opacity: 1;
-            }
-        }
     </style>
 </head>
 <body>
@@ -57,9 +28,9 @@
     <div class="wrap">
         <img class="w h" src="./img/web1.jpg" alt="">
     </div>
-    <div class="btn" onclick="toAjax()">前往ajax</div>
+    <div class="btn" onclick="jump()">前往ajax</div>
     <script>
-        function toAjax(){
+        function jump(){
             window.location.href="ajax.html"
         }
     </script>

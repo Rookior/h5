@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>requirejs</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+      body{
+        line-height: 2em;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>requirejs核心语法</h2>
+    <p>官网:https://requirejs.org/docs/api.html#define</p>
+    <p>基于AMD异步加载模块</p>
+    <p>define 和 require</p>
+    <h2>requirejs特点</h2>
+    <ul id="ul">
+      <li>异步加载模块</li>
+      <li>按依赖顺序加载</li>
+      <li>模块依赖前置</li>
+    </ul>
+    <h2>使用方式</h2>
+    <ul>
+        <li>标签引入require.js</li>
+        <li>配置js插件的路径与别名</li>
+        <li>按需要引入</li>
+        <li>*重复引入已经加载过的模块时,不会重复引入</li>
+    </ul>
+    <button onclick="reload()">重复require时并不会重新加载已加载的模块</button>
+    <div class="btn" onclick="jump()">前往seajs</div>
+    <script src="./js/require.js"></script>
+    <script src="./js/require.config.js"></script>
+    <script> 
+      require(['jquery'], function ($) {
+            console.log($('#ul').append('<li>hello requirejs</li>'))
+      })
+      require(['moduleA','moduleB','moduleC'], function (moduleA,moduleB,moduleC){　　
+        console.log(moduleA,moduleB,moduleB.method1())
+        console.log(moduleC)
+        console.log(moduleC.method1())
+        console.log(moduleC.getDom('#ul').append('<li>hello moduleC</li>'))
+      });
+
+      function reload(){
+        require(['jquery'], function ($) {
+              console.log("重新加载jquery")
+        })
+      }
+
+      function jump(){
+            window.location.href="../seajs/index.html"
+      }
+    </script>
+  </body>
+</html>

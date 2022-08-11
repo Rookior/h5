@@ -10,6 +10,7 @@
 </head>
 <body>
     <img class="w h" src="./img/ajax.jpg" alt="">
+    <div class="btn" onclick="jump()">前往requirejs</div>
     <script>
         document.body.addEventListener('click',function(){
             search('ajax让前端渲染不依赖后端')
@@ -34,6 +35,9 @@
         }
         function myNeed(data) {
             alert(JSON.stringify(data))
+        }
+        function jump(){
+            window.location.href="requirejs/index.html"
         }
     </script>
 </body>
