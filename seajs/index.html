@@ -18,14 +18,18 @@
     <p>官网:https://seajs.github.io/seajs/docs/#quick-start</p>
     <p>默认基于CMD同步加载模块</p>
     <p>define, require, require.async, exports,module.exports</p>
-    <h2>使用方式</h2>
+    <h2>seajs特点</h2>
     <ul id="ul">
+      <li>默认同步加载模块</li>
+    </ul>
+    <h2>使用方式</h2>
+    <ul>
         <li>引入seajs</li>
         <li>使用sea.config定义模块别名与路径</li>
         <li>exports.方法名=function(){return ...} 或者 赋值给module.exports = {} 不可以直接 export {}</li>
         <li>使用sea.use使用</li>
     </ul>
-
+    <button onclick="reload()">重复sea.use时并不会重新加载已加载的模块</button>
     <script src="./js/sea.js"></script>
     <script src="./js/sea.config.js"></script>
     <script>
@@ -49,7 +53,27 @@
         ul.append('<li>hello moduleC</li>')
       })
 
+      function reload(){
+        seajs.use(['jquery'], function (jquery) {
+            console.log($)
+            console.log($('#ul').append('<li>hello seajs</li>'))
+        })
 
+        seajs.use(['moduleA','moduleB'], function (moduleA,moduleB) {
+            console.log(moduleA,moduleB,moduleB.method1())
+            // console.log(moduleC)
+            // console.log(moduleC.method1())
+            // console.log(moduleC.getDom('#ul').append('<li>hello moduleC</li>'))
+        })
+
+        seajs.use(['moduleC'], function (moduleC) {
+            console.log(moduleC)
+            var moduleB_methods1 = moduleC.sayHello();
+            console.log(moduleB_methods1)  
+            var ul =  moduleC.getDom('#ul')
+            ul.append('<li>hello moduleC</li>')
+        })
+      }
      
     </script>
   </body>
