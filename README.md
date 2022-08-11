@@ -6,7 +6,7 @@
 作为后端mvc中的view
 
 2.	Ajax
-促进了web2.0，实现丰富的动效，交互等
+促进了web2.0，实现丰富的动效，交互等, 跨域jsonp
 3.	Jquery
 动效促进jquery插件丰富
 4.	html5+css3+es6 实现web3.0
@@ -19,7 +19,9 @@ jquery插件混乱导致script混乱，于是产生了模块化概念
 10.	微前端，qiankun
 11.	快应用
 12.	Pc端的nwjs与electron
-13.	Babel,typescript
+13.	js的兼容Babel,js的超级规范typescript
+14. css的单位px,rem,vw,vh,vmin,vmax
+15. css预编译sass,less
 
 
 

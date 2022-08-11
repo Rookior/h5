@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>web1.0</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .wrap{
+            padding: 0;
+        }
+        .title{
+            background: #0472BD;
+            color: #fff;
+            text-align: center;
+            height: 80px;
+            line-height: 80px;
+            font-size: 20px;
+            /* text-shadow: h-shadow v-shadow blur color; */
+            text-shadow: 2px 2px 5px #f00;
+        }
+        .btn{
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            cursor: pointer;
+            width: 200px;
+            padding: 5px;
+            margin: 0 auto;
+            box-sizing: border-box;
+            color: #fff;
+            text-align: center;
+            /* 内阴影 */
+            /* box-shadow: 0 0 5px #888888 inset; */
+            /* 外阴影 */          
+            animation: wink 2s ease 1s infinite alternate;
+            box-shadow: 2px 2px 5px #0f0;
+            background-image:linear-gradient(to right, #f00,#0f0,#00f)
+        }
+        @keyframes wink{
+            0%{
+                opacity: 1;
+            }
+            50%{
+                opacity: 0.8;
+            }
+            100%{
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <p class="title">html+css3+js前端三剑客</p>
+    <div class="wrap">
+        <img class="w h" src="./img/web1.jpg" alt="">
+    </div>
+    <div class="btn" onclick="toAjax()">前往ajax</div>
+    <script>
+        function toAjax(){
+            window.location.href="ajax.html"
+        }
+    </script>
+   
+    
+</body>
+</html>

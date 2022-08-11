@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ajax</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <img class="w h" src="./img/ajax.jpg" alt="">
+    <script>
+        document.body.addEventListener('click',function(){
+            search('ajax让前端渲染不依赖后端')
+        })
+        function search(keyword){     
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET','https://www.baidu.com/sugrec?pre=1&p=3&ie=utf-8&json=1&prod=pc&from=pc_web&wd=' + keyword,true)
+            xhr.send()
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState == 4){
+                    //判断本次下载的状态码都是多少 304表示请求的资源没有被修改
+                    if(xhr.status == 200){
+                        alert(xhr.responseText);
+                    }else{
+                        console.log("Error:" + xhr.status + '请求失败或者跨域,使用jsonp');
+                        var oScript = document.createElement('script');
+                        oScript.src = 'https://www.baidu.com/sugrec?pre=1&p=3&ie=utf-8&json=1&prod=pc&from=pc_web&wd='+keyword+'&cb=myNeed';
+                        document.body.appendChild(oScript);  
+                    }
+                }
+            }
+        }
+        function myNeed(data) {
+            alert(JSON.stringify(data))
+        }
+    </script>
+</body>
+</html>
